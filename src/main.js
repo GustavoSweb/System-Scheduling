@@ -1,7 +1,17 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { setupCalendar, Calendar, DatePicker } from 'v-calendar';
+import 'v-calendar/style.css';
 
 import '../public/css/index.css'
 
-createApp(App).use(router).mount('#app')
+const appService = createApp(App)
+appService.use(router).mount('#app')
+
+appService.use(setupCalendar, {})
+
+appService.component('VCalendar', Calendar)
+appService.component('VDatePicker', DatePicker)
+
+
