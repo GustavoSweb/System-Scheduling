@@ -1,6 +1,6 @@
 class ConsultationFactory {
   Build(simpleConsultation) {
-    var { date, description} = simpleConsultation;
+    var { date} = simpleConsultation;
     date = new Date(date)
 /*    const day = date.getDate();
     const month = date.getMonth();
@@ -11,19 +11,10 @@ class ConsultationFactory {
     const minutes = Number.parseInt(time[1]);
 */
     var advantageConsultation = {
+      key: 'today',
+      highlight: 'red',
       dates:[date],
-      dot:{
-        color:'red',
-        isComplete: false,
-      },
-      popover:{
-        label:description,
-      },
-
     }
-
-
-
     return advantageConsultation;
   }
 }
