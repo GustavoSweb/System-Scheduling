@@ -31,7 +31,18 @@ class Consultation{
         try{
             await Api.get(`/consultation/${id}/finished`)
         }catch(err){
-            throw new Error('Error no metodo findOne, Consultation')
+            throw new Error('Error no metodo Finished, Consultation')
+        }
+    }
+    async FindIndiceText(text){
+        try{
+            const result = (await Api.get(`/consultation/search/${text}`)).data
+            console.log(result)
+            return result
+        }catch(err){
+            console.log(err)
+            throw new Error('Error no metodo FindIndiceText, Consultation')
+
         }
     }
 }

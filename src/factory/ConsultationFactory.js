@@ -1,20 +1,13 @@
 class ConsultationFactory {
   Build(simpleConsultation) {
-    var { date} = simpleConsultation;
+    var { date, finished} = simpleConsultation;
     date = new Date(date)
-/*    const day = date.getDate();
-    const month = date.getMonth();
-    const year = date.getFullYear();
-
-    time = time.split(":");
-    const hour = Number.parseInt(time[0]);
-    const minutes = Number.parseInt(time[1]);
-*/
     var advantageConsultation = {
       key: 'today',
-      highlight: 'red',
+      highlight: 'blue',
       dates:[date],
     }
+    if(!finished) advantageConsultation.highlight = 'red'
     return advantageConsultation;
   }
 }
