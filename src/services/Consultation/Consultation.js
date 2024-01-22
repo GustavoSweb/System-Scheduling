@@ -1,10 +1,10 @@
 import Api from "../Api";
 
 class Consultation{
-    async FindAll(showFinished = undefined){
+    async FindAll(showFinished = false){
         try{
-            var result = (await Api.get('/consultation')).data
-            if(showFinished != undefined)result = result.filter(a => a.finished==showFinished)
+            var result = (await Api.get(`/consultation?showfinished=${showFinished}`)).data
+            
             return result
         }catch(err){
             console.log(err)
